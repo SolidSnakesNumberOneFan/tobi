@@ -1,6 +1,7 @@
 """tobi- 2b||(2b) - Room Presence integration."""
 from enum import StrEnum
 import logging
+import datetime
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
@@ -74,6 +75,8 @@ class TobiBinarySensor(BinarySensorEntity):
         self.presence_sensor = presence_sensors
 
         self._state: STATES = STATES.S0
+        self._s1 = True
+        self._time = None
         self._listeners = []
 
     @property
@@ -84,15 +87,14 @@ class TobiBinarySensor(BinarySensorEntity):
     @property
     def is_on(self) -> bool | None:
         """Return true if the binary sensor is on."""
-        return self._state in [STATES.S1, STATES.S2]
+        return self._state in [STATES.S1*self._s1, STATES.S2]
 
     @property
     def extra_state_attributes(self):
         """Return the state attributes."""
         return {
             "state": self._state,
-            "motion_sensors": self.motion_sensors,
-            "presence_sensors": self.presence_sensor,
+            "last_triggered": self._time,
         }
 
     async def async_added_to_hass(self) -> None:
@@ -148,6 +150,7 @@ class TobiBinarySensor(BinarySensorEntity):
 
     async def update_state(self):
         """Update the state of the sensor."""
+        self._time = datetime.now()
         match self._state:
             case STATES.S0:
                 if self.get_motion_state():
