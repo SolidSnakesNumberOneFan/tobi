@@ -1,7 +1,7 @@
 """tobi- 2b||(2b) - Room Presence integration."""
 from enum import StrEnum
 import logging
-import datetime
+from datetime import datetime
 
 from homeassistant.components.binary_sensor import (
     BinarySensorDeviceClass,
