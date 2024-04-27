@@ -3,7 +3,7 @@
   "name": "to be or not - Room Presence",
   "codeowners": ["@nindtendo"],
   "config_flow": true,
-  "dependencies": [],
+  "dependencies": ["calendar"],
   "documentation": "https://github.com/NinDTendo/tobi",
   "homekit": {},
   "integration_type": "device",
