@@ -1,16 +1,15 @@
 {
   "domain": "tobi",
   "name": "to be or not - Room Presence",
-  "codeowners": ["@nindtendo"],
-  "config_flow": true,
-  "dependencies": ["calendar"],
-  "documentation": "https://github.com/NinDTendo/tobi",
-  "homekit": {},
+  "version": "0.0.3",
   "integration_type": "device",
-  "iot_class": "local_push",
-  "issue_tracker": "https://github.com/NinDTendo/tobi/issues",
+  "documentation": "https://github.com/SolidSnakesNumberOneFan/tobi",
+  "issue_tracker": "https://github.com/SolidSnakesNumberOneFan/tobi",
+  "dependencies": [],
+  "after_dependencies": [],
+  "codeowners": ["@nindtendo", "@SolidSnakesNumberOneFan"],
+  "config_flow": true,
   "requirements": [],
-  "ssdp": [],
-  "version": "0.0.2",
-  "zeroconf": []
+  "quality_scale": "custom",
+  "iot_class": "calculated"
 }

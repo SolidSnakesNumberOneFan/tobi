@@ -30,6 +30,9 @@ OPTIONS_SCHEMA = vol.Schema(
                 multiple=True,
             )
         ),
+        vol.Required("allow_re_presence"): selector.BooleanSelector(
+            selector.BooleanSelectorConfig()
+        ),
     }
 )
 
